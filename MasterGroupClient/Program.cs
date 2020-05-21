@@ -10,9 +10,22 @@ namespace MasterGroupClient
 {
     class Program
     {
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Console.WriteLine("init!");
+            await GetMessageId("0");
+            await GetMessageTags("TestTag");
+
+            message msg = new message();
+            msg.msg = "clientTest";
+            msg.Id = 1;
+            msg.tags = "clientTag";
+            await PostMessage(msg);
+
+            credential cred = new credential();
+            cred.shared_secret = "shared-client";
+            cred.key = 2;
+            await PutCredential(cred);
         }
 
         private static async Task GetMessageId(String id)
