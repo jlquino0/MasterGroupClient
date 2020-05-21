@@ -70,7 +70,7 @@ namespace MasterGroupClient
             Console.WriteLine(result);
         }
 
-        static async Task PostMessage(credential cred)
+        static async Task PutCredential(credential cred)
         {
 
             var json = JsonConvert.SerializeObject(cred);
